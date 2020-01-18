@@ -39,7 +39,7 @@
       auth.onAuthStateChanged(
         /** Recibe las características del usuario o null si no ha iniciado
          * sesión. */
-        async usuarioAuth => {
+        usuarioAuth => {
           if (usuarioAuth && usuarioAuth.email) {
             // Usuario aceptado.
             // @ts-ignore Muestra el email registrado en Google.
@@ -50,7 +50,7 @@
             avatar.src = usuarioAuth.photoURL;
           } else {
             // No ha iniciado sesión. Pide datos para iniciar sesión.
-            await auth.signInWithRedirect(provider);
+            auth.signInWithRedirect(provider);
           }
         },
         // Función que se invoca si hay un error al verificar el usuario.
